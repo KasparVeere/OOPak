@@ -1,0 +1,47 @@
+package org.example;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Auto24Scraper {
+
+    public static void main(String[] args) {
+        // 1. Seadista WebDriver automaatselt
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        try {
+            // 2. Ava leht
+            driver.get("https://www.auto24.ee/");
+
+            // 3. Oota natuke, et sisu jõuaks laadida (parem oleks kasutada WebDriverWait)
+            Thread.sleep(3000);
+
+            // 4. Saa kogu lehe HTML
+            String pageSource = driver.getPageSource();
+
+            // 5. Parsime selle Jsoupiga
+            Document doc = Jsoup.parse(pageSource);
+
+            // 6. Leiame kuulutuste pealkirjad (näiteks esilehe kuulutused)
+            Elements titles = doc.select(".title"); // CSS klass võib muutuda, testime!
+
+            // 7. Väljastame need
+            for (Element title : titles) {
+                System.out.println("Auto: " + title.text());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 8. Sulgeme browseri
+            driver.quit();
+        }
+    }
+}
+
