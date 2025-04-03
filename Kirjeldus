@@ -1,0 +1,47 @@
+Autorid: Kaspar Veere, Annabel Priks
+
+Projekti põhjalik kirjeldus (kus on kirjas programmi eesmärk ja selgitus programmi üldisest tööst, vajadusel lühike kasutusjuhis:
+Programm aitab kasutajal leida Auto24 veebisaidilt talle sobilikke sõidukuite pakkumisi tema sisestatud automargi ning hinna põhjal. Programm küsib kasutajalt
+vajalikud andmed, avab Chrome aplikatsiooni, kus kasutades antud andmeid väljastab kasutajale vastava sõidukite listi. (Kasutusjuhend: tuleb omada Chrome veebilehitsejat)
+
+Klassid ja nende meetodid:
+1) Auto24Kraapija meetod on otsiKuulutused. See teeb järgmist: avab Auto24 veebilehe, nõustub seal küpsistega, liigub kindel arvu piksleid allapoole kuni on näha 
+andmete sisetamise lahtrid. sisestab sinna andmed, liigub allapoole, et teostada otsing. Seejärel järgmisel leheküljel webscrapib andmeid sõidukite kohta ja lisab need listi
+2) Auto24Rakenduse meetodiks on main. See teeb järgmist: 
+-loob JOptionPane abil kasutajaga suhtlemiseks interface'i
+- annab kasutajale valiku, kas sisestada automark ise või pakub talle juhusliku populaarse automargi. Seejärel kasutaja sisestab sõiduki maksimaalse hinna
+- kasutab programmi Auto24Kraapija meetodit, et kuvada kraabitud andmed interface'ga
+juhusliku automargi.
+3) Klass AutoKuulutus salvestab mudeli info ja hinna.
+4) Klass AutoOtsing salvestab kasutaja sisestatud margi ja maksimaalse hinna.
+5) MargiSoovitaja meetodiks on Soovita, mis hoiustab listi automarkidest ning tagastab juhusliku automargi.
+
+Projekti tegemise protsessi kirjeldus (erinevad etapid ja rühmaliikmete osalemine neis):
+Kuna elame lähistikku, siis saime rühmatööd terve projekti vältel koos tööd teha. 
+1. etapp: Saime esmakordselt kokku ja arutasime, mida projekti raames luua. Otsustasime luua webscraper'i. Läbi käisid booking, airbnb ja erinevad uudistekanalid, aga 
+kuna me tahtsime luua midagi, mida saaksime hiljem ka ise kasutada, siis valisime kraabitavaks veebisaidiks just auto24.
+2. etapp: Uurisime webscraperi tööpõhimõtet ja kuidas seda auto24 veebilehel rakendada. Selgus, et lihtsalt JSoup'i kasutades ei saa me veebilehelt andmeid kätte
+anti-bot kaitse tõttu. Pidime kasutama Selenium'it, mis avab Chrome rakenduse ja selle abil väljastab andmed.
+3. etapp: Selle pikema ajavahemiku jooksul saime korduvalt kokku ja lõime lõpliku programmi. Esines palju takistusi, nagu näiteks veebilehe html koodist elementide
+mitte leidmine ja Seleniumi kasutama õppimine.
+4. etapp: Kirjutasime programmi kirjeldust ning vaatasime programmi üle.
+
+Iga rühmaliikme panus (sh tehtud klassid/meetodid) ja ajakulu (orienteeruvalt):
+Nagu eelnevalt mainitud tegutsesime koos ning kindlat rolli ei saa määrata. Ajakulu on orienteeruvalt 15 tundi inimese kohta.
+
+Tegemise mured (nt millistest teadmistest/oskustest tundsite projekti tegemisel puudust):
+Puutusime esmakordselt kokku webscraperi loomisega, mistõttu oli see ka kõige ajakulukam osa ja vajas palju iseseisvat kasutama õppimist. Raskusi oli ka meile vajalike
+veebilehe html elementide leidmisega.
+
+Hinnang oma töö lõpptulemusele (millega saite hästi hakkama ja mis vajab arendamist):
+Programm toimib ja ei ole poolikul kujul, omandasime palju uusi teadmisi. Ebamugav oli kohati tiimikaaslasega arvestada, kuid see tuli meil üllatavalt sujuvalt välja
+ning on ka tulevikuks kasuks. Sooviks lisada rohkem meetodeid. Hetkel väljastab programm kahe kriteeeriumi järgi sõidukite andmeid, aga oleks soovinud luua ka teisi
+seoseid andmete vahel ja neid huvitavalt kasutajale väljastada.
+
+Selgitus ja/või näited, kuidas programmi osi eraldi ja programmi tervikuna testisite ehk kuidas veendusite, et programm töötab korrektselt.
+Luues klassid AutoOtsing, AutoKuulutus ja MargiSoovitaja oli see lihtne, kuna need olid lihtsad klassid, mille laadseid me olime praktikumide käigus juba rakendanud.
+Auto24Kraapija oli juba keerulisem , kuna  me polnud varasemalt webscraperi loomisega kokku puutunud. Kuna kasutasime Seleniumit, siis meil oli visuaalne pilt silme ees, 
+mida programm teeb, kuhu ta oma tegemistega jõuab ja mis järgmisena ette võtta. Lisaks kasutasime rohkelt try meetodit, mis ebaõnnestumise ja õnnestuse korral printis
+välja meile vastava tulemuse. Programmi Auto24Rakendus oli interneti abil suhteliselt otsekohene luua ja koheselt kontrollitav visuaalse interface'i kaudu.
+
+
